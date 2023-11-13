@@ -1,0 +1,4 @@
+For input.txt file:
+1. string with text
+2. block length (optimal - 64)
+3. language of text ('rus' or 'eng')
