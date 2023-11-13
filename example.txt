@@ -2,3 +2,19 @@ For input.txt file:
 1. string with text
 2. block length (optimal - 64)
 3. language of text ('rus' or 'eng')
+
+You do not need to put numbers before the line!!!
+
+Example:
+Привет, как дела? Что делаешь?
+32
+rus
+
+OR
+
+Example:
+Hello! How are you?
+64
+eng
+
+The example with the text will be in the file 'input.txt'
