@@ -10,9 +10,10 @@ def bit2text(ct):
         text += ASCII_value
     return text
 
-print(bit2text(['0110101100010000', '0100001100101000', '0000001000011100', '1000011111110001']))
+def bit2text4rus(binary):
+    return ''.join(chr(int(val, 2)) for val in binary)
 
-def hex_to_bin(input):
+def hex2bin(input):
     table = {
     '0': '0000', '1': '0001', '2': '0010', '3': '0011',
     '4': '0100', '5': '0101', '6': '0110', '7': '0111',
@@ -25,7 +26,7 @@ def hex_to_bin(input):
         binary_string += table[character]
     return binary_string
 
-def bin_to_hex(input):
+def bin2hex(input):
     return format((int(input, 2)), 'x').upper()
 
 def nbit_nbit(bit, length):
@@ -36,5 +37,3 @@ def nbit_nbit(bit, length):
         ot_length = bits[:length]
         norm_bit.append(ot_length)
         bits = bits.replace(ot_length, '', 1)
-
-nbit_nbit()

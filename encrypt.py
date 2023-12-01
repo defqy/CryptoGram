@@ -1,6 +1,6 @@
 #import functions
 from open_file import open_encrypt
-from converter import bin_to_hex
+from converter import bin2hex
 from permutation import permutation_encrypt
 from random_key import randomize
 from xor import xor_func
@@ -33,8 +33,8 @@ ct.pop(0) #delete inizalization vector
 
 g = ''.join(map(str, ct))
 with open('output_encrypt.txt', 'w+') as f:
-    print(f'\nEncrypted text - {bin_to_hex(g)}')
+    print(f'\nEncrypted text - {bin2hex(g)}')
     print(f'Initialization vector - {random_key.init_key}\nKey - {random_key.key}\n')
-    f.write(f'{bin_to_hex(g)}\n{random_key.init_key}\n{open_file.l}')
+    f.write(f'{bin2hex(g)}\n{random_key.init_key}\n{open_file.l}')
 
-os.system('python3 sender.py')
+os.system('python3 bot_sender.py')

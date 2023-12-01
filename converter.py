@@ -1,15 +1,11 @@
 #converting from bits to text
 def bit2text(ct):
-    global text
-    text = ''
-    for i in range(len(ct)):
-        input_string=int(ct[i], 2)
-        Total_bytes= (input_string.bit_length() +7) // 8
-        input_array = input_string.to_bytes(Total_bytes, "big")
-        ASCII_value=input_array.decode()
-        text += ASCII_value
+    global utf_bytes
+    ct = ''.join(ct)
+    bytes_array = [int(ct[i:i+8], 2) for i in range(0, len(ct), 8)]
+    utf_bytes = bytes(bytes_array)
 
-def hex_to_bin(input):
+def hex2bin(input):
     table = {
     '0': '0000', '1': '0001', '2': '0010', '3': '0011',
     '4': '0100', '5': '0101', '6': '0110', '7': '0111',
@@ -22,7 +18,16 @@ def hex_to_bin(input):
         binary_string += table[character]
     return binary_string
 
-def bin_to_hex(input):
+def bit2text4rus(binary):
+    global text
+    binary = ''.join(binary)
+    bytes_array = [int(binary[i:i+8], 2) for i in range(0, len(binary), 8)]
+    utf16_bytes = bytes(bytes_array)
+    decoded_text = utf16_bytes.decode('utf-16')
+    text = decoded_text
+    return decoded_text
+
+def bin2hex(input):
     return format((int(input, 2)), 'x').upper()
 
 def nbit_nbit(bit, length):

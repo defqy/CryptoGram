@@ -2,8 +2,9 @@
 def blocks_encrypt(ott, length, lang):
     global out
     out = []
-    if lang == 8: ot = ''.join(format(ord(i), '08b') for i in ott)
-    elif lang == 16: ot = ''.join(format(x, 'b') for x in bytearray(ott, 'utf-8'))
+    if lang == 8: ott = ott.encode('utf-8')
+    elif lang == 16: ott = ott.encode('utf-16')
+    ot = ''.join(format(byte, '08b') for byte in ott)
     if len(ot) % length != 0: ot += '0' * (length - len(ot) % length)
     for i in range(len(ot) // length):
         ot_length = ot[:length]
