@@ -51,7 +51,7 @@ elif n == 3:
         a = int(q[0])
 
     K = B**a % p
-    print(K)
+    print(f'Key - {K}')
 
 elif n == 0:
     f = open('gpA.txt', 'r+')

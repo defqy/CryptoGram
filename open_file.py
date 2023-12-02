@@ -2,7 +2,7 @@
 lan = {'eng':8, 'rus':16}
 
 def open_encrypt(file):
-    global ot, z, lang, l
+    global ot, z, lang, key_config, l
     with open(file, 'r') as f: 
         q = f.readlines()
         ot = q[0] #ot
@@ -11,7 +11,12 @@ def open_encrypt(file):
         z = z.replace('\n', '')
         z = int(z) #len of key
         l = q[2]
+        l = l.replace('\n', '')
         lang = lan[l]#language of text (for the number of bits)
+        try:
+            key_config = q[3]
+        except:
+            key_config = 0
 
 #reading file for decrypt
 def open_decrypt(file):
