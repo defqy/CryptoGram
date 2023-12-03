@@ -1,6 +1,20 @@
 import random
 
-n = int(input('Sender - 1; Reciever - 2; Sender recieve - 3; Clear all files (without - keyDH.txt) - 0: '))
+def gpA(file):
+    global g, p, A
+    with open(file, 'r') as f:
+        q = f.readlines()
+        g = q[0]
+        g = int(g.replace('\n', ''))
+        p = q[1]
+        p = int(p.replace('\n', ''))
+        A = int(q[2])
+
+def write(path, arg):
+    with open(path, 'w+') as f:
+        f.write(str(arg))
+
+n = int(input('\nSender - 1\nReciever - 2\nSender recieve - 3\nClear all files (without - keyDH.txt) - 0: '))
 if n == 1:
     a = random.randint(100, 1000000)
     g = random.randint(100, 1000000)
@@ -8,43 +22,26 @@ if n == 1:
 
     A = g**a % p
 
-    with open('a.txt', 'w+') as f:
-            f.write(f'{a}')
-
-    with open('gpA.txt', 'w+') as f:
-        f.write(f'{g}\n{p}\n{A}')
+    write('a.txt', a)
+    write('gpA.txt', f'{g}\n{p}\n{A}')
 
 elif n == 2:
     b = random.randint(100, 1000000)
-    with open('gpA.txt', 'r') as f:
-        q = f.readlines()
-        g = q[0]
-        g = int(g.replace('\n', ''))
-        p = q[1]
-        p = int(p.replace('\n', ''))
-        A = int(q[2])
+
+    gpA('gpA.txt')
 
     B = g**b % p
     K = A**b % p
 
-    with open('B.txt', 'w+') as f:
-        f.write(f'{B}')
-
-    with open('key_DH.txt', 'w+') as f:
-        f.write(f'{K}')
+    write('B.txt', B)
+    write('key_DH.txt', K)
 
 elif n == 3:
     with open('B.txt', 'r') as f:
         B = f.readlines()
         B = int(B[0])
     
-    with open('gpA.txt', 'r') as f:
-        q = f.readlines()
-        g = q[0]
-        g = int(g.replace('\n', ''))
-        p = q[1]
-        p = int(p.replace('\n', ''))
-        A = int(q[2])
+    gpA('gpA.txt')
 
     with open('a.txt', 'r') as f:
         q = f.readlines()
@@ -54,9 +51,7 @@ elif n == 3:
     print(f'Key - {K}')
 
 elif n == 0:
-    f = open('gpA.txt', 'r+')
-    f.truncate()
-    z = open('a.txt', 'r+')
-    z.truncate()
-    o = open('B.txt', 'r+')
-    o.truncate()
+    arr = ['gpA.txt', 'a.txt', 'B.txt']
+    for i in range(len(arr)):
+        f = open(arr[i], 'r+')
+        f.truncate()
