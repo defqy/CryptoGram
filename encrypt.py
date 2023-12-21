@@ -14,14 +14,14 @@ import permutation
 import blocks
 import os
 
-open_encrypt('input.txt') #open file open_file.path
+open_encrypt('configs/input.txt') #open file open_file.path
 ct = [] #array
 if open_file.key_config != '1': 
     randomize(open_file.z)
     key = random_key.key #random key of length n symbols
 else:
     randomize(open_file.z)
-    open_key('key.txt')
+    open_key('configs/key.txt')
     key = open_file.key
     key = key.split(';')
 ct.append(random_key.init_key) #adding inizalization vector
@@ -34,12 +34,12 @@ for g in range(len(blocks.out)):
 
 key = ';'.join(map(str, key)) #converting an array to a split string
 
-with open('key.txt', 'w+') as d: d.write(key) #writting key
+with open('configs/key.txt', 'w+') as d: d.write(key) #writting key
 
 ct.pop(0) #delete inizalization vector
 
 g = ''.join(map(str, ct))
-with open('output_encrypt.txt', 'w+') as f:
+with open('configs/output_encrypt.txt', 'w+') as f:
     print(f'\nEncrypted text - {bin2hex(g)}')
     print(f'Initialization vector - {random_key.init_key}\nKey - {key}\n')
     f.write(f'{bin2hex(g)}\n{random_key.init_key}\n{open_file.l}')

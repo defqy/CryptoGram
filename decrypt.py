@@ -12,8 +12,8 @@ import xor
 import converter
 import blocks
 
-open_decrypt('output_encrypt.txt') #extraction ot and vector
-open_key('key.txt') #extraction key
+open_decrypt('configs/output_encrypt.txt') #extraction ot and vector
+open_key('configs/key.txt') #extraction key
 open_file.key = open_file.key.split(';') #splitting array with ";"
 blocks_decrypt(hex2bin(open_file.ot), len(open_file.key)) #splitting into blocks for decryption
 
@@ -34,6 +34,6 @@ elif open_file.lang == 16: text = converter.utf_bytes.decode('utf-16') #converti
 open_file.key = ';'.join(map(str, open_file.key)) #join in string with ";"
 
 #writting information in file
-with open('output_decrypt.txt', 'w+') as f:
+with open('configs/output_decrypt.txt', 'w+') as f:
     print(f'\nDecrypted text - {text}\nInitialization vector - {open_file.vector}\nKey - {open_file.key}\n')
     f.write(f'{text}\n{open_file.vector}\n{open_file.l}')

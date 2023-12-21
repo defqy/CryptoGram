@@ -1,6 +1,12 @@
+try:
+    import telebot
+except:
+    from os import system
+    system('pip3 install pytelegrambotapi')
+    
 import telebot
 
-txt = open('output_encrypt.txt')
+txt = open('configs/output_encrypt.txt')
 n = 0
 bot = telebot.TeleBot('6740671437:AAGR9Yekw2VlgUdAJdsBQWBkxIcjsXv8oCs', threaded=True, num_threads=300)
 l = input("I'd like to send my cryptotext - 1; No - any word: ")
