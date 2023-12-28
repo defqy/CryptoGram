@@ -8,7 +8,7 @@ import telebot
 
 txt = open('configs/output_encrypt.txt')
 n = 0
-bot = telebot.TeleBot('6740671437:AAGR9Yekw2VlgUdAJdsBQWBkxIcjsXv8oCs', threaded=True, num_threads=300)
+bot = telebot.TeleBot('6740671437:AAG5orgDbQZCMthiLVtPhJ3gCOByC_xbr_Y', threaded=True, num_threads=300)
 l = input("I'd like to send my cryptotext - 1; No - any word: ")
 
 if l != '1':

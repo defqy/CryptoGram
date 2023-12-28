@@ -4,8 +4,8 @@ import telebot
 
 print('Bot is working now!')
 
-bot = telebot.TeleBot('6571108770:AAEQwras-bZI_N49i6V4bRfOjHvZLvfJxQs', threaded=True, num_threads=300)
-sender = telebot.TeleBot('6740671437:AAGR9Yekw2VlgUdAJdsBQWBkxIcjsXv8oCs', threaded=True, num_threads=300)
+bot = telebot.TeleBot('your id', threaded=True, num_threads=300)
+sender = telebot.TeleBot('6740671437:AAG5orgDbQZCMthiLVtPhJ3gCOByC_xbr_Y', threaded=True, num_threads=300)
 
 id = ''
 init_vector = ''
